@@ -11,7 +11,7 @@ int main(void)
 	/*var declration*/
 	char x = "and that piece of art is useful\" - Dora Korpar, 2015-10-19";
 	/*function putchar*/
-	putchar(ch);
+	putchar(x);
 
 	return (1);
 }
