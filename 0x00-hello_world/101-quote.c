@@ -5,7 +5,7 @@
  *
  * Descripition: print stdio
  *
- * Return :Always 1 (Failed)
+ * Return: Always 1 (Failed)
  */
 int main(void)
 {
