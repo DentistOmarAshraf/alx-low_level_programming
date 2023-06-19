@@ -2,9 +2,9 @@
 /**
  * main - Entry point
  *
- * Descripition : print size of var
+ * Descripition: '6-size.c' print size of var
  *
- * Return : 0 Alwyas Success
+ * Return: Alwyas 0 (Success)
  */
 int main(void)
 {
