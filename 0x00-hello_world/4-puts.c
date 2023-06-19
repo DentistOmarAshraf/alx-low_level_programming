@@ -1,5 +1,11 @@
 #include <stdio.h>
-/*describe main*/
+/**
+ * main - Entry point
+ *
+ * Description: its about stdout stream
+ *
+ * Return: Always 0 (Success)
+ */
 int main(void)
 {
 	/*this function print on stdout*/
