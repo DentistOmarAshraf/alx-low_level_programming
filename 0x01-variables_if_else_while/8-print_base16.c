@@ -1,12 +1,11 @@
 #include<stdio.h>
 /**
- * main - Entry Point
+ * main -Entry Point
  *
- * Description: print numbers with for loop
+ * Description: for loop
  *
- * Return: Always 0 (Success)
+ * Return: Alwyas 0 (Success)
  */
-
 int main(void)
 {
 	int x;
@@ -14,6 +13,10 @@ int main(void)
 	for (x = 0 ; x < 10 ; x++)
 	{
 		putchar((x % 10) + '0');
+	}
+	for (x = 'a' ; x <= 'f' ; x++)
+	{
+		putchar(x);
 	}
 	putchar('\n');
 	return (0);
