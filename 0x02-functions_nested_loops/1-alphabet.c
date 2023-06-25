@@ -1,13 +1,20 @@
 #include "main.h"
 /**
- *main - Entry Point
- *
- *Description: for loop print alphabet
- *
- *Return: Alwyas 0 (Success)
+ * print_alphabet - printing all alphabet in small
+ * @void: no parametar needed
+ * Description: printing alphabet
+ * Return: no return type
  */
-int main(void)
-{
-	print_alphabet();
-	return (0);
-}
+
+void print_alphabet(void)
+	{
+		char i;
+
+		i = 'a';
+		while (i <= 'z')
+		{
+			_putchar(i);
+			i++;
+		}
+		_putchar('\n');
+	}
