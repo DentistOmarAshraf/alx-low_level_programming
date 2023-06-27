@@ -4,32 +4,30 @@
  *
  * Description: fabiona
  *
- * Retrun: Alwyas 0 (Success)
+ * Return: Alwyas 0 (Success)
  */
 
 int main(void)
 {
 	int x;
-	unsigned long y, z, sum;
-	y = 0;
-	z = 1;
+	unsigned long int y, z, sum, next;
 
-	for (x = 0 ; x <= 50 ; x++)
+	y = 1;
+	z = 2;
+	sum = 0;
+
+	for (x = 0 ; x <= 32 ; x++)
 	{
-		sum = y + z;
+		if (sum < 4000000 && (y % 2) == 0)
+		{
+			sum = sum + y;
+		}
+		next = y + z;
 		y = z;
-		z = sum;
-		
-		if (sum < 4000000)
-		{
-			printf(", ");
-			printf("%lu" ,sum);
-		}
-		else
-		{
-			printf("\n");
-			break;
-		}
+		z = next;
 	}
+
+	printf("%lu\n", sum);
+
 	return (0);
 }
