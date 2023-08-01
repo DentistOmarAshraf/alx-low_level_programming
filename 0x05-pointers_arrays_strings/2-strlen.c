@@ -9,7 +9,7 @@ int _strlen(char *s)
 {
 	int i = 0;
 
-	while (i < 99)
+	while (i < 500)
 	{
 		if (*(s + i) == '\0')
 		{
