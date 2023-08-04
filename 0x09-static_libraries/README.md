@@ -1,1 +1,1 @@
-Static lib
+This is about static lib
