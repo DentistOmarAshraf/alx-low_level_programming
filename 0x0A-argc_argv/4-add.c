@@ -1,26 +1,38 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
 /**
  * main - entry point
  * @argc: number of arrgment passed
  * @argv: array hold arrgments
  * Return: Alwyas (0)
  */
-
 int main(int argc, char *argv[])
 {
-	int i, sum;
-	
-	if(argc < 3)
+	int x, y, sum, length;
+	char *ptr;
+
+	sum = 0;
+	if (argc < 2)
 	{
-		printf("Error\n");
+		printf("%d\n", sum);
 	}
 	else
 	{
-		sum = 0;
-		for (i = 1 ; i < argc ; i++)
+		for (x = 1 ; x < argc ; x++)
 		{
-			sum += atoi(argv[i]);
+			ptr = argv[x];
+			length = strlen(ptr);
+			for (y = 0; y < length ; y++)
+			{
+				if (isdigit(*(ptr + y)) == 0)
+				{
+					printf("Error\n");
+					return (1);
+				}
+			}
+			sum += atoi(argv[x]);
 		}
 		printf("%d\n", sum);
 	}
