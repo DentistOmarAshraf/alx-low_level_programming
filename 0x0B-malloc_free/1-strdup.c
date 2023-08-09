@@ -3,8 +3,8 @@
 #include "main.h"
 
 /**
- * _strdup - 
- * @str:
+ * _strdup - function copy string 
+ * @str: string array
  * Return: Array
  */
 char *_strdup(char *str)
@@ -15,12 +15,12 @@ char *_strdup(char *str)
 	size = 0;
 	while (str[size] != '\0')
 	{
-		size++
+		size++;
 	}
 	ptr = (char *)malloc(sizeof(char) * size);
 	for(i = 0 ; i < size ; i++)
 	{
-		ptr[i] = str[i]
+		ptr[i] = str[i];
 	}
 	return (ptr);
 }
