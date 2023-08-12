@@ -2,7 +2,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
-#include <string.h>
 
 /**
  * main - entry point
@@ -14,8 +13,7 @@
 int main(int argc, char *argv[])
 {
 	unsigned long mul;
-	int x, y, length;
-	char *temp;
+	int x, y;
 
 	if (argc != 3)
 	{
@@ -27,18 +25,16 @@ int main(int argc, char *argv[])
 		mul = 1;
 		for (x = 1 ; x < argc ; x++)
 		{
-			temp = argv[x];
-			length = strlen(temp);
-			for (y = 0 ; y < length ; y++)
+			for (y = 0 ; argv[x][y] != '\0' ; y++)
 			{
-				if (isdigit(temp[y]) == 0)
+				if (argv[x][y] > 57 || argv[x][y] < 48)
 				{
 					printf("Error\n");
 					exit(98);
 				}
 			}
-			mul *= atoi(temp);
 		}
+		mul = atoi(argv[1]) * atoi(argv[2]);
 		printf("%lu\n", mul);
 	}
 	return (0);
