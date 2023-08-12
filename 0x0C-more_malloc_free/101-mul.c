@@ -1,7 +1,6 @@
 #include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include <ctype.h>
 #include <limits.h>
 
 /**
@@ -23,7 +22,6 @@ int main(int argc, char *argv[])
 	}
 	else
 	{
-		mul = 1;
 		for (x = 1 ; x < argc ; x++)
 		{
 			for (y = 0 ; argv[x][y] != '\0' ; y++)
