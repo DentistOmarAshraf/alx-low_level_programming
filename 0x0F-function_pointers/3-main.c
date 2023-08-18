@@ -18,15 +18,15 @@ int main(int argc, char *argv[])
 	if (argc != 4)
 	{
 		printf("Error\n");
-		return (0);
+		exit (98);
 	}
 	else
-	{
-		a = atoi(argv[1]);
-		b = atoi(argv[3]);
-		s = (argv[2]);
-		res = (*get_op_func(s))(a, b);
-		printf("%d\n", res);
+	{	
+	a = atoi(argv[1]);
+	b = atoi(argv[3]);
+	s = (argv[2]);
+	res = (*get_op_func(s))(a, b);
+	printf("%d\n", res);
 	}
 	return (0);
 }
