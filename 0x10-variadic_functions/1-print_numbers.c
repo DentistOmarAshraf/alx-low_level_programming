@@ -25,7 +25,10 @@ void print_numbers(const char *separetor, const unsigned int n, ...)
 			printf("\n");
 			return;
 		}
-		printf("%s ", separetor);
+		if (separetor != NULL)
+		{
+			printf("%s ", separetor);
+		}
 	}
 	va_end(args);
 }
