@@ -1,1 +1,1 @@
-this is about variadic functions
+This is about Variadic func
