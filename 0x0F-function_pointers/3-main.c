@@ -13,20 +13,29 @@
 int main(int argc, char *argv[])
 {
 	int a, b, res;
+	int (*opr)(int, int);
 	char *s;
 
 	if (argc != 4)
 	{
 		printf("Error\n");
-		exit (98);
+		exit(98);
 	}
-	else
-	{	
 	a = atoi(argv[1]);
 	b = atoi(argv[3]);
 	s = (argv[2]);
-	res = (*get_op_func(s))(a, b);
-	printf("%d\n", res);
+	opr = get_op_func(s);
+	if (opr == NULL)
+	{
+		printf("Error\n");
+		exit(99);
 	}
+	if ((*s == '/' || *s == '%') && b == 0)
+	{
+		printf("Error\n");
+		exit(100);
+	}
+	res = opr(a, b);
+	printf("%d\n", res);
 	return (0);
 }
