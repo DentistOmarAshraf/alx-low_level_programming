@@ -8,21 +8,17 @@
 
 char *leet(char *str)
 {
-	int i;
+	int i, j;
+	char let[] = "aeotl";
+	char sub[] = "43071";
 
 	for (i = 0 ; str[i] != '\0' ; i++)
 	{
-		if (str[i] == 'a' || str[i] == 'A')
-			str[i] = '4';
-		if (str[i] == 'e' || str[i] == 'E')
-			str[i] = '3';
-		if (str[i] == 'o' || str[i] == 'O')
-			str[i] = '0';
-		if (str[i] == 't' || str[i] == 'T')
-			str[i] = '7';
-		if (str[i] == 'l' || str[i] == 'L')
-			str[i] = '1';
+		for (j = 0 ; let[j] != '\0' ; j++)
+		{
+			if (str[i] == let[j] || str[i] == let[j] - 32)
+				str[i] = sub[j];
+		}
 	}
-	str[i] = '\0';
 	return (str);
 }
