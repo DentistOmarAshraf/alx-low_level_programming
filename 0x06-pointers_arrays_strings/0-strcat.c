@@ -1,26 +1,22 @@
 #include "main.h"
+
 /**
- * _strcat - 
- * @dest:
- * @src
- * return: char
+ * _strcat - append string to other
+ * @dest: destination string array
+ * @src: string array
+ * Return: array
  */
+
 char *_strcat(char *dest, char *src)
 {
-	int destlen, srclen , con;
-	char 
+	int len, i;
 
-	destlen = 0;
-	srclen = 0;
-	while (dest[destlen] != '\0' || dest[destlen] != " ")
-	{
-		destlen++;
-	}
-	while (src[srclen] !='\0')
-	{
-		srclen++;
-	}
+	len = 0;
+	while (dest[len] != '\0')
+		len++;
 
-	con = destlen + srclen + 1;
-
-
+	for (i = 0 ; src[i] != '\0' ; i++)
+		dest[len++] = src[i];
+	dest[len] = '\0';
+	return (dest);
+}
