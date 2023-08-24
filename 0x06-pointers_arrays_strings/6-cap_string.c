@@ -36,6 +36,5 @@ char *cap_string(char *str)
 		else
 			str[i] = str[i];
 	}
-	str[i] = '\0';
 	return (str);
 }
