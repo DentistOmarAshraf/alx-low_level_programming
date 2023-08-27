@@ -16,6 +16,6 @@ char *_strchr(char *s, char c)
 			return (s + i);
 	}
 	if (s[i] == c)
-		return (s + i);
+		return (s + i); /*this line mean even the char is '\0' return the pointer*/
 	return (NULL);
 }
