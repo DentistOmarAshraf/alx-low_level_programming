@@ -1,22 +1,19 @@
 #include "main.h"
 
 /**
- * _memset - write first byte of char *
- * @s: array pointer
+ * _memset - function change the first bytes of string
+ * @s: pointer to string array
  * @b: char
- * @n: number of bytes
+ * @n: int number of bytes
  * Return: char *
  */
 
 char *_memset(char *s, char b, unsigned int n)
 {
-	unsigned int i, len;
+	unsigned int i;
 
-	for (len = 0 ; s[len] != '\0'; len++)
-		;
-	for (i = 0 ; i < n; i++)
+	for (i = 0 ; i < n ; i++)
 		s[i] = b;
-	s[len] = '\0';
-
+	s[i] = '\0';
 	return (s);
 }
