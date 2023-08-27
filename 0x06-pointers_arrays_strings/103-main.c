@@ -50,5 +50,12 @@ int main(void)
 	{
 	printf("%s + %s = %s\n", n, m, res);
 	}
+	n = "1992";
+	m = "9000";
+	res = infinite_add(n, m,r2, 6);
+	if (res == 0)
+		printf("Error\n");
+	else 
+		printf("%s + %s = %s\n", n,m,res);
 	return (0);
 }
