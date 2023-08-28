@@ -16,12 +16,10 @@ int _strspn(char *s, char *accept)
 		for (j = 0 ; s[j] != '\0' ; j++)
 		{
 			if (accept[i] == s[j])
-			{
 				count++;
+			if (s[j] == ' ')
 				break;
-			}
 		}
 	}
-	count++;
 	return (count);
 }
