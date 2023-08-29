@@ -3,8 +3,8 @@
 
 int main(void)
 {
-	char *s = "hello, world";
-	char *f = "world";
+	char *s = "Hello, how's the weather today?";
+	char *f = "weather";
 	char *t;
 
 	t = _strstr(s, f);
