@@ -11,9 +11,9 @@ int _sqrt(int x, int y)
 {
 	if (y * y == x)
 		return (y);
-	if (y < 0)
+	if (y == x)
 		return (-1);
-	return (_sqrt(x, y - 1));
+	return (_sqrt(x, y + 1));
 }
 
 /**
@@ -26,5 +26,5 @@ int _sqrt_recursion(int n)
 {
 	if (n < 0)
 		return (-1);
-	return (_sqrt(n, n));
+	return (_sqrt(n, 1));
 }
