@@ -1,4 +1,4 @@
 #!/bin/bash
 gcc -Wall -Werror -Wextra -pediantic -std=gnu89 -c *.c
-ar -rc libmy.a *.o
+ar -rc liball.a *.o
 ranlib libmy.a
