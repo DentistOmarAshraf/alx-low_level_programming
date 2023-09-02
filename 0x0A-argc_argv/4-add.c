@@ -2,7 +2,7 @@
 /**
  * _isdigit - return 1 if digit return 0 if not
  * Description: this function not the same isdigit (modified for char*)
- * @c: int
+ * @c: pointer to str
  * Return: 1 if digit 0 if not
  */
 int _isdigit(char *c)
