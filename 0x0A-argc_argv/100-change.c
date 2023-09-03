@@ -51,11 +51,11 @@ int _atoi(char *str)
 
 int main(int argc, char *argv[])
 {
-	int n, i, res, temp;
+	long int n, i, res, temp;
 
 	if (argc != 2 || !(_isdigit(argv[1])))
 	{
-		printf("Error\n, %d", argc);
+		printf("Error\n");
 		return (-1);
 	}
 	n = _atoi(argv[1]);
@@ -87,6 +87,6 @@ int main(int argc, char *argv[])
 			res += 1;
 			n -= 1; }
 	}
-	printf("%d\n", res);
+	printf("%ld\n", res);
 	return (0);
 }
