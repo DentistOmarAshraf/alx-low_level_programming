@@ -12,7 +12,7 @@ int _isdigit(char *str)
 
 	for (i = 0 ; str[i] != '\0' ; i++)
 	{
-		if (str[i] >= '0' && str[i] <= '9')
+		if ((str[i] >= '0' && str[i] <= '9') || str[i] == '-')
 			continue;
 		else
 			return (0);
@@ -51,11 +51,11 @@ int _atoi(char *str)
 
 int main(int argc, char *argv[])
 {
-	unsigned int n, i, res, temp;
+	int n, i, res, temp;
 
 	if (argc != 2 || !(_isdigit(argv[1])))
 	{
-		printf("Error\n");
+		printf("Error\n, %d", argc);
 		return (-1);
 	}
 	n = _atoi(argv[1]);
