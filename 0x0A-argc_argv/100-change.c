@@ -63,24 +63,29 @@ int main(int argc, char *argv[])
 	for (i = 0 ; n > 0 ; i++)
 	{
 		if (n >= 25)
+		{
 			res += n / 25;
 			temp = n / 25;
-			n -= (temp * 25);
+			n -= (temp * 25); }
 		if (n >= 10)
+		{
 			res += n / 10;
 			temp = n / 10;
-			n -= (temp * 10);
+			n -= (temp * 10); }
 		if (n >= 5)
+		{
 			res += n / 5;
 			temp = n / 5;
-			n -= (temp * 5);
+			n -= (temp * 5); }
 		if (n >= 2)
+		{
 			res += n / 2;
 			temp = n / 2;
-			n -= (temp * 2);
+			n -= (temp * 2); }
 		if (n == 1)
+		{
 			res += 1;
-			n -= 1;
+			n -= 1; }
 	}
 	printf("%d\n", res);
 	return (0);
