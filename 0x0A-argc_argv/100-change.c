@@ -51,7 +51,7 @@ int _atoi(char *str)
 
 int main(int argc, char *argv[])
 {
-	int n, i, res, temp;
+	unsigned int n, i, res, temp;
 
 	if (argc != 2 || !(_isdigit(argv[1])))
 	{
