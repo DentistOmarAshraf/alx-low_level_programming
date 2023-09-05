@@ -5,7 +5,7 @@ int main(void)
 {
 	char *s;
 
-	s = str_concat("Betty ", "Holbetron");
+	s = str_concat(NULL, NULL);
 	if (s == NULL)
 	{
 		printf("Failed\n");
