@@ -5,7 +5,7 @@ int main(void)
 {
 	char *s;
 	
-	s = _strdup("ALX SE");
+	s = _strdup("OMAR ALX SE");
 	if (s == NULL)
 	{
 		printf("failed to allocate memo\n");
