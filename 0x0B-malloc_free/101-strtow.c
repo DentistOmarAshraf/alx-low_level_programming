@@ -46,7 +46,7 @@ char **strtow(char *str)
 			count++;
 		for (j = 0 ; str[count] != ' ' && str[count]; j++, count++)
 			;
-		new[i] = malloc(sizeof(char *) * j);
+		new[i] = malloc(sizeof(char) * (j + 1));
 		if (new == NULL)
 		{
 			for (i = 0 ; i < words ; i++)
