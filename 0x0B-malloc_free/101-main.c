@@ -9,12 +9,12 @@
  *      */
 void print_tab(char **tab)
 {
-	    int i;
+     	int i;
 
-	        for (i = 0; tab[i] != NULL; ++i)
-			    {
-				            printf("%s\n", tab[i]);
-					        }
+	for (i = 0; tab[i] != NULL; ++i)
+	    {
+	            printf("%s\n", tab[i]);
+	    }
 }
 
 /**
@@ -24,14 +24,14 @@ void print_tab(char **tab)
  *     */
 int main(void)
 {
-	    char **tab;
+	 char **tab;
 
-	        tab = strtow("alx School #cisfun");
-		    if (tab == NULL)
-			        {
-					        printf("Failed\n");
-						        return (1);
-							    }
+	 tab = strtow("   ALX School     #cisfun  ");
+	if (tab == NULL)
+	{
+		printf("Failed\n");
+		return (1);
+	}
 		        print_tab(tab);
 			free(tab);
 			    return (0);
