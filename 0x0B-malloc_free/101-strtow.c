@@ -31,7 +31,7 @@ char **strtow(char *str)
 	char **new;
 	int words, i, j, count, count2;
 
-	if (str == NULL)
+	if (str == NULL || str == 0)
 		return (NULL);
 	words = count_word(str);
 	new = malloc(sizeof(char *) * (words + 1));
