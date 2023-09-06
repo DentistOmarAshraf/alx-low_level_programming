@@ -58,7 +58,6 @@ char **strtow(char *str)
 			count2++;
 		for (j = 0 ; str[count2] != ' ' && str[count2] ; j++, count2++)
 			new[i][j] = str[count2];
-		new[i][j] = '\0';
 	}
 	return (new);
 }
