@@ -1,5 +1,15 @@
 #include "main.h"
-
+/**
+ * _strlen - string len
+ * @s: pointer to str
+ * Return: int
+ */
+int _strlen(char *s)
+{
+	if (!*s)
+		return (0);
+	return (1 + _strlen(s + 1));
+}
 /**
  * count_word - count words in string
  * @str: pointer to str
@@ -31,7 +41,7 @@ char **strtow(char *str)
 	char **new;
 	int words, i, j, count, count2;
 
-	if (str == NULL || str == 0)
+	if (str == NULL || count_word(str) == 0 || _strlen(str) == 0)
 		return (NULL);
 	words = count_word(str);
 	new = malloc(sizeof(char *) * (words + 1));
