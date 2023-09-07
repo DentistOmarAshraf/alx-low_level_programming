@@ -21,13 +21,13 @@ int main(void)
 {
 	int *a;
 
-	a = array_range(5, 11);
+	a = array_range(0, 11);
 	if (a == NULL)
 	{
 		printf("NULL\n");
 		return (1);
 	}
-	simple_print_buffer(a, 6);
+	simple_print_buffer(a, 12);
 	free(a);
 	return (0);
 }
