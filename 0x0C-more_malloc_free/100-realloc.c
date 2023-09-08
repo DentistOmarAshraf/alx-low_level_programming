@@ -24,11 +24,7 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 		free(ptr);
 		return (NULL);
 	}
-	old = malloc(old_size);
-	if (old == NULL)
-		return (NULL);
 	old = (char *)ptr;
-
 	new = malloc(new_size);
 	if (new == NULL)
 		return (NULL);
@@ -41,10 +37,6 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 		for (i = 0 ; i < new_size ; i++)
 			new[i] = old[i];
 	free(old);
-	tosend = malloc(new_size);
-	if (tosend == NULL)
-		return (NULL);
 	tosend = (void *)new;
-	free(new);
 	return (tosend);
 }
