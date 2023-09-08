@@ -14,18 +14,16 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 	char *old;
 	char *new;
 	void *tosend;
-	void *ptrnull;
 
 	if (new_size == old_size)
 		return (ptr);
 	if (ptr == NULL)
-	{
-		ptrnull = malloc(new_size);
-		if (ptrnull == NULL)
-			return (NULL);
-	}
+		return(malloc(new_size));
 	if (ptr != NULL && new_size == 0)
+	{
 		free(ptr);
+		return (NULL);
+	}
 	old = malloc(old_size);
 	if (old == NULL)
 		return (NULL);
@@ -34,9 +32,14 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 	new = malloc(new_size);
 	if (new == NULL)
 		return (NULL);
-
-	for (i = 0 ; i <= old_size ; i++)
-		new[i] = old[i];
+	if (new_size > old_size)
+	{
+		for (i = 0 ; i < old_size ; i++)
+			new[i] = old[i];
+	}
+	else
+		for (i = 0 ; i < new_size ; i++)
+			new[i] = old[i];
 	free(old);
 	tosend = malloc(new_size);
 	if (tosend == NULL)
