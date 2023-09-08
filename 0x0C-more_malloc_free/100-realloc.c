@@ -1,48 +1,47 @@
 #include "main.h"
 
 /**
- * _realloc - ...
+ * _realloc - reallocation of memo
  * @ptr: void pointer
  * @old_size: old size malloced
  * @new_size: to be re-allocated
+ * Return: void pointer
  */
 
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
 	unsigned int i;
-	char *temp;
-	char *ptr2 =(char *)ptr;
+	char *old;
+	char *new;
+	void *tosend;
+	void *ptrnull;
 
 	if (new_size == old_size)
 		return (ptr);
-	if (ptr2 == NULL)
-	{
-		ptr2 = malloc(new_size);
-		if (ptr2 == NULL)
-		{
-			free(ptr2);
-			return (NULL);
-		}
-	}
-
-	if (ptr2 != NULL && new_size == 0)
-		free(ptr);
-
-	temp = malloc(old_size);
-	if (temp == NULL)
-		return (NULL);
-
-	for (i = 0 ; i <= old_size ; i++)
-		*(temp + i) = *(ptr2 + i);
-
-	free(ptr);
-	ptr = malloc(new_size);
 	if (ptr == NULL)
+	{
+		ptrnull = malloc(new_size);
+		if (ptrnull == NULL)
+			return (NULL);
+	}
+	if (ptr != NULL && new_size == 0)
+		free(ptr);
+	old = malloc(old_size);
+	if (old == NULL)
+		return (NULL);
+	old = (char *)ptr;
+
+	new = malloc(new_size);
+	if (new == NULL)
 		return (NULL);
 
 	for (i = 0 ; i <= old_size ; i++)
-		*(ptr2 + i) = *(temp + i);
-
-	free(temp);
-	return (ptr2);
+		new[i] = old[i];
+	free(old);
+	tosend = malloc(new_size);
+	if (tosend == NULL)
+		return (NULL);
+	tosend = (void *)new;
+	free(new);
+	return (tosend);
 }
