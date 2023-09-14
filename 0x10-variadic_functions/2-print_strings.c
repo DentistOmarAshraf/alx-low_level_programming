@@ -17,7 +17,7 @@ char *_strcpy(char *s)
 	for (len = 0 ; s[len] ; len++)
 		;
 	tosend = malloc(sizeof(char) * (len + 1));
-	if (tosend == NULL)
+	if (!tosend)
 		return (NULL);
 	for (i = 0 ; i < len ; i++)
 		tosend[i] = s[i];
