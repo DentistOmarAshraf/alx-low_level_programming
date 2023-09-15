@@ -13,7 +13,7 @@ void print_all(const char * const format, ...);
  */
 typedef struct opt
 {
-	char c;
+	char *c;
 	void (*f)(va_list);
 } opt_t;
 

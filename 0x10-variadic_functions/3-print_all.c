@@ -36,7 +36,7 @@ void print_int(va_list args)
 	int i;
 
 	i = va_arg(args, int);
-	printf("%d\n", i);
+	printf("%d", i);
 }
 /**
  * print_float - print float
@@ -58,33 +58,30 @@ void print_float(va_list args)
 void print_all(const char * const format, ...)
 {
 	opt_t ops[] = {
-		{'c', print_char},
-		{'d', print_int},
-		{'f', print_float},
-		{'s', print_str},
-		{'\0', NULL}
+		{"c", print_char},
+		{"i", print_int},
+		{"f", print_float},
+		{"s", print_str},
 	};
 	va_list args;
-	void (*f)(va_list);
 	int i;
 	int j;
-	char *sep;
+	char *sep = "";
 
 	va_start(args, format);
-	sep = ", ";
 
 	i = 0;
-	j = 0;
 	while (format != NULL && format[i] != '\0')
 	{
-		if (i)
-			printf("%s", sep);
-		while (ops[j].c)
+		j = 0;
+		while (j < 4)
 		{
-			if (format[i] == ops[j].c)
+			if (format[i] == ops[j].c[0])
 			{
-				f = ops[j].f;
-				f(args);
+				printf("%s", sep);
+				sep = ", ";
+				ops[j].f(args);
+				break;
 			}
 			j++;
 		}
