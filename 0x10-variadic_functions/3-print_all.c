@@ -67,6 +67,7 @@ void print_all(const char * const format, ...)
 	int i;
 	int j;
 	char *sep = ", ";
+	char *sep2 = "";
 
 	va_start(args, format);
 
@@ -80,6 +81,8 @@ void print_all(const char * const format, ...)
 			{
 				if (i)
 					printf("%s", sep);
+				else
+					printf("%s", sep2);
 				ops[j].f(args);
 				break;
 			}
