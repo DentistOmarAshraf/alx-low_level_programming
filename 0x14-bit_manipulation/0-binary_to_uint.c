@@ -29,7 +29,7 @@ unsigned int binary_to_uint(const char *s)
 	unsigned int tosend, base;
 	int len, x, i, y;
 
-	if (!_isbin(s) || s == NULL)
+	if (!_isbin(s))
 		return (0);
 
 	tosend = 0;
