@@ -12,10 +12,12 @@ int get_bit(unsigned long int n, unsigned int index)
 	unsigned int i;
 	unsigned long int x;
 
+	if (n == 0)
+		return (0);
 	x = n;
 	for (i = 0 ; i < index ; i++)
 	{
-		if (!(x >> 0))
+		if (!x)
 			return (-1);
 		x = x >> 1;
 	}
