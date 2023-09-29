@@ -40,14 +40,9 @@ unsigned int binary_to_uint(const char *s)
 		if (s[i] == '1')
 		{
 			base = 1;
-			if (!x)
-				tosend += 1;
-			else
-			{
-				for (y = 1 ; y <= x ; y++)
-					base *= 2;
-				tosend += base;
-			}
+			for (y = 0 ; y < x ; y++)
+				base *= 2;
+			tosend += base;
 		}
 	}
 		return (tosend);
