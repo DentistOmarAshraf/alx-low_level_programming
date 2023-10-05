@@ -38,14 +38,14 @@ int _cp(char *filefrom, char *fileto)
 	ssize_t per = S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH;
 	char *buffer;
 
-	buffer = malloc(sizeof(char) * 1024);
-	if (!buffer)
-		return (99);
 	fd1 = open(filefrom, O_RDONLY);
 	if (fd1 < 0)
 		return (98);
-	fd2 = open(fileto, O_WRONLY | O_TRUNC | O_CREAT, per);
+	fd2 = open(fileto, O_CREAT | O_WRONLY | O_TRUNC, per);
 	if (fd2 < 0)
+		return (99);
+	buffer = malloc(sizeof(char) * 1024);
+	if (!buffer)
 		return (99);
 	while (rdchk > 0)
 	{
@@ -62,6 +62,7 @@ int _cp(char *filefrom, char *fileto)
 			return (99);
 		}
 	}
+	free(buffer);
 	rdchk = close(fd1);
 	if (rdchk < 0)
 		return (100 + fd1);
