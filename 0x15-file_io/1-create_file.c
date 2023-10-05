@@ -12,8 +12,6 @@ int create_file(const char *filename, char *text_content)
 	ssize_t fd, n_write;
 	int len;
 
-	if (!filename)
-		return (-1);
 	if (!text_content)
 		text_content = "";
 	for (len = 0 ; text_content[len] ; len++)
