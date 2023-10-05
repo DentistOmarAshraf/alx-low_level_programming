@@ -89,7 +89,7 @@ int main(int ac, char **av)
 	ret = _cp(av[1], av[2]);
 	if (ret != 1)
 	{
-		if (ret > 100)
+		if (ret >= 100)
 		{
 			fd = ret - 100;
 			str = get_err(100);
