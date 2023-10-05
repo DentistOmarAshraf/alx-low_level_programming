@@ -36,8 +36,11 @@ int _cp(char *filefrom, char *fileto)
 {
 	ssize_t fd1, fd2, rdchk, wrchk;
 	ssize_t per = S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH;
-	char buffer[1024];
+	char *buffer;
 
+	buffer = malloc(sizeof(char) * 1024);
+	if (!buffer)
+		return (99);
 	fd1 = open(filefrom, O_RDONLY);
 	if (fd1 < 0)
 		return (98);
@@ -48,10 +51,16 @@ int _cp(char *filefrom, char *fileto)
 	{
 		rdchk = read(fd1, buffer, 1024);
 		if (rdchk < 0)
-		return (98);
+		{
+			free(buffer);
+			return (98);
+		}
 		wrchk = write(fd2, buffer, rdchk);
 		if (wrchk < 0)
-		return (99);
+		{
+			free(buffer);
+			return (99);
+		}
 	}
 	rdchk = close(fd1);
 	if (rdchk < 0)
@@ -99,5 +108,5 @@ int main(int ac, char **av)
 			exit(ret);
 		}
 	}
-	return (1);
+	return (0);
 }
