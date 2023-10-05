@@ -1,0 +1,100 @@
+#include "main.h"
+#include <stdlib.h>
+#include <stdio.h>
+/**
+ * get_err - return error statment
+ * @n: int
+ * Return: pointer to str
+ */
+
+char *get_err(int n)
+{
+	err_s err[] = {
+		{98, "Can't read from file %s\n"},
+		{99, "Can't write to %s\n"},
+		{100, "Can't close fd %d\n"},
+		{0, NULL}
+	};
+	int i = 0;
+
+	while (err[i].str != 0)
+	{
+		if (n == err[i].n)
+			return (err[i].str);
+		i++;
+	}
+	return (NULL);
+}
+
+/**
+ * _cp - function copy from file to file
+ * @filefrom: pointer to str (file to copy from)
+ * @fileto: pointer to str (file to write to)
+ * Return: according to situation
+ */
+int _cp(char *filefrom, char *fileto)
+{
+	ssize_t fd1, fd2, rdchk, wrchk;
+	ssize_t per = S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH;
+	char buffer[1024];
+
+	fd1 = open(filefrom, O_RDONLY);
+	if (fd1 < 0)
+		return (98);
+	fd2 = open(fileto, O_WRONLY | O_TRUNC | O_CREAT, per);
+	if (fd2 < 0)
+		return (99);
+	rdchk = read(fd1, buffer, 1024);
+	if (rdchk < 0)
+		return (98);
+	wrchk = write(fd2, buffer, rdchk);
+	if (wrchk < 0)
+		return (99);
+	rdchk = close(fd1);
+	if (rdchk < 0)
+		return (100 + fd1);
+	wrchk = close(fd2);
+	if (wrchk < 0)
+		return (100 + fd2);
+	return (1);
+}
+/**
+ * main - main func
+ * @ac: number of argment
+ * @av: 2d array of argments
+ * Return: according to situation
+ */
+int main(int ac, char **av)
+{
+	int ret, fd;
+	char *str;
+
+	if (ac != 3)
+	{
+		dprintf(2, "Usage: cp file_from file_to\n");
+		exit(97);
+	}
+	ret = _cp(av[1], av[2]);
+	if (ret != 1)
+	{
+		if (ret > 100)
+		{
+			fd = ret - 100;
+			str = get_err(100);
+			dprintf(2, str, fd);
+			exit(100);
+		}
+		str = get_err(ret);
+		if (ret == 98)
+		{
+			dprintf(2, str, av[1]);
+			exit(ret);
+		}
+		if (ret == 99)
+		{
+			dprintf(2, str, av[2]);
+			exit(ret);
+		}
+	}
+	return (1);
+}
