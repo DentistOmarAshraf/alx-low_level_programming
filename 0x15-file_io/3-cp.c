@@ -10,9 +10,9 @@
 char *get_err(int n)
 {
 	err_s err[] = {
-		{98, "Can't read from file %s\n"},
-		{99, "Can't write to %s\n"},
-		{100, "Can't close fd %d\n"},
+		{98, "Error: Can't read from file %s\n"},
+		{99, "Error: Can't write to %s\n"},
+		{100, "Error: Can't close fd %d\n"},
 		{0, NULL}
 	};
 	int i = 0;
