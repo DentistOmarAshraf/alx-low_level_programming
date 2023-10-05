@@ -44,12 +44,15 @@ int _cp(char *filefrom, char *fileto)
 	fd2 = open(fileto, O_WRONLY | O_TRUNC | O_CREAT, per);
 	if (fd2 < 0)
 		return (99);
-	rdchk = read(fd1, buffer, 1024);
-	if (rdchk < 0)
+	while (rdchk > 0)
+	{
+		rdchk = read(fd1, buffer, 1024);
+		if (rdchk < 0)
 		return (98);
-	wrchk = write(fd2, buffer, rdchk);
-	if (wrchk < 0)
+		wrchk = write(fd2, buffer, rdchk);
+		if (wrchk < 0)
 		return (99);
+	}
 	rdchk = close(fd1);
 	if (rdchk < 0)
 		return (100 + fd1);
