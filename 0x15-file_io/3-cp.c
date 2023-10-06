@@ -65,12 +65,12 @@ int _cp(char *filefrom, char *fileto)
 	str = get_err(100);
 	if (rdchk < 0)
 	{
-		dprintf(2, str, fd1);
+		dprintf(STDERR_FILENO, str, fd1);
 		exit(100);	}
 	wrchk = close(fd2);
 	if (wrchk < 0)
 	{
-		dprintf(2, str, fd2);
+		dprintf(STDERR_FILENO, str, fd2);
 		exit(100);	}
 	return (1);
 }
@@ -96,12 +96,12 @@ int main(int ac, char **av)
 		str = get_err(ret);
 		if (ret == 98)
 		{
-			dprintf(2, str, av[1]);
+			dprintf(STDERR_FILENO, str, av[1]);
 			exit(ret);
 		}
 		if (ret == 99)
 		{
-			dprintf(2, str, av[2]);
+			dprintf(STDERR_FILENO, str, av[2]);
 			exit(ret);
 		}
 	}
