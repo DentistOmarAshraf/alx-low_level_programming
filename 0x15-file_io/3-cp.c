@@ -34,7 +34,7 @@ char *get_err(int n)
  */
 int _cp(char *filefrom, char *fileto)
 {
-	ssize_t fd1, fd2, rdchk, wrchk;
+	int fd1, fd2, rdchk, wrchk;
 	ssize_t per = S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH;
 	char *buffer;
 
