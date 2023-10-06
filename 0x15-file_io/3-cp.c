@@ -34,7 +34,7 @@ char *get_err(int n)
  */
 int _cp(char *filefrom, char *fileto)
 {
-	ssize_t fd1, fd2, rdchk, wrchk, ret = 100;
+	ssize_t fd1, fd2, rdchk, wrchk;
 	ssize_t per = S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH;
 	char *buffer;
 
@@ -65,10 +65,10 @@ int _cp(char *filefrom, char *fileto)
 	free(buffer);
 	rdchk = close(fd1);
 	if (rdchk < 0)
-		return (ret + fd1);
+		return (100 + fd1);
 	wrchk = close(fd2);
 	if (wrchk < 0)
-		return (ret + fd2);
+		return (100 + fd2);
 	return (1);
 }
 /**
