@@ -79,8 +79,7 @@ int _cp(char *filefrom, char *fileto)
  */
 int main(int ac, char **av)
 {
-	ssize_t fd;
-	int ret;
+	int ret, fd;
 	char *str;
 
 	if (ac != 3)
