@@ -36,7 +36,7 @@ int _cp(char *filefrom, char *fileto)
 {
 	int fd1, fd2, rdchk, wrchk;
 	ssize_t per = S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH;
-	char *buffer, *str;
+	char *buffer;
 
 	fd1 = open(filefrom, O_RDONLY);
 	if (fd1 < 0)
@@ -62,16 +62,11 @@ int _cp(char *filefrom, char *fileto)
 	}
 	free(buffer);
 	rdchk = close(fd1);
-	str = get_err(100);
 	if (rdchk < 0)
-	{
-		dprintf(STDERR_FILENO, str, fd1);
-		exit(100);	}
+		return (100 + fd1);
 	wrchk = close(fd2);
 	if (wrchk < 0)
-	{
-		dprintf(STDERR_FILENO, str, fd2);
-		exit(100);	}
+		return (100 + fd2);
 	return (1);
 }
 /**
@@ -82,7 +77,7 @@ int _cp(char *filefrom, char *fileto)
  */
 int main(int ac, char **av)
 {
-	int ret;
+	int ret, fd;
 	char *str;
 
 	if (ac != 3)
@@ -93,6 +88,13 @@ int main(int ac, char **av)
 	ret = _cp(av[1], av[2]);
 	if (ret != 1)
 	{
+		if (ret >= 100)
+		{
+			fd = ret - 100;
+			str = get_err(100);
+			dprintf(STDERR_FILENO, str, fd);
+			exit(100);
+		}
 		str = get_err(ret);
 		if (ret == 98)
 		{
