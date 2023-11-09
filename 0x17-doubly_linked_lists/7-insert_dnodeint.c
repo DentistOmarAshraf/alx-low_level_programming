@@ -31,9 +31,15 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **head, size_t idx, int num)
 	if (idx == list_size(*head) || idx > list_size(*head))
 		return (NULL);
 	if (!idx || !*head)
-		return (add_dnodeint(head, num));
+	{
+		new = add_dnodeint(head, num);
+		return (new);
+	}
 	if (idx == list_size(*head) - 1)
-		return (add_dnodeint_end(head, num));
+	{
+		new = add_dnodeint_end(head, num);
+		return (new);
+	}
 	new = malloc(sizeof(dlistint_t));
 	if (!new)
 		return (NULL);
