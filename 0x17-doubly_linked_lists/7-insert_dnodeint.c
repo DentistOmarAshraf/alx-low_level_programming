@@ -28,9 +28,9 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **head, size_t idx, int num)
 	dlistint_t *ptr;
 	size_t i;
 
-	if (!*head || idx == list_size(*head) || idx > list_size(*head))
+	if (idx == list_size(*head) || idx > list_size(*head))
 		return (NULL);
-	if (!idx)
+	if (!idx || !*head)
 		return (add_dnodeint(head, num));
 	if (idx == list_size(*head) - 1)
 		return (add_dnodeint_end(head, num));
