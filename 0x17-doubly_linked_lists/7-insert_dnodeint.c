@@ -28,12 +28,12 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **head, size_t idx, int num)
 	dlistint_t *ptr;
 	size_t i;
 
-	if (!idx || !*head)
+	if (!idx || !*head || idx > list_size(*head))
 	{
 		new = add_dnodeint(head, num);
 		return (new);
 	}
-	if (idx == list_size(*head) || idx > list_size(*head))
+	if (idx == list_size(*head))
 	{
 		new = add_dnodeint_end(head, num);
 		return (new);
