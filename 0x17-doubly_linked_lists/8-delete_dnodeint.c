@@ -33,9 +33,8 @@ int delete_dnodeint_at_index(dlistint_t **head, size_t idx)
 	if (!dlt)
 		return (-1);
 	ptr->next = dlt->next;
-	if (ptr->next)
-		ptr->next->prev = ptr;
-	dlt->prev = NULL;
+	if (dlt->next)
+		dlt->next->prev = ptr;
 	free(dlt);
 	dlt = NULL;
 	return (1);
