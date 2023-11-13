@@ -16,13 +16,10 @@ int delete_dnodeint_at_index(dlistint_t **head, size_t idx)
 		return (-1);
 	if (!idx)
 	{
-		if (*head)
-		{
-			dlt = *head;
-			*head = (*head)->next;
-			free(dlt);
-			return (1);
-		}
+		dlt = *head;
+		*head = (*head)->next;
+		free(dlt);
+		return (1);
 	}
 	ptr = *head;
 	for (i = 0 ; i < idx - 1 ; i++)
@@ -31,9 +28,9 @@ int delete_dnodeint_at_index(dlistint_t **head, size_t idx)
 		if (!ptr)
 			return (-1);
 	}
-	dlt = ptr->next;
-	if (!dlt)
+	if (!ptr->next)
 		return (-1);
+	dlt = ptr->next;
 	ptr->next = dlt->next;
 	if (dlt->next)
 		dlt->next->prev = ptr;
