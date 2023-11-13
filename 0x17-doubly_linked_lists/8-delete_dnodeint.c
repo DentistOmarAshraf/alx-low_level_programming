@@ -18,6 +18,8 @@ int delete_dnodeint_at_index(dlistint_t **head, size_t idx)
 	{
 		dlt = *head;
 		*head = (*head)->next;
+		if (*head)
+			(*head)->prev = NULL;
 		free(dlt);
 		dlt = NULL;
 		return (1);

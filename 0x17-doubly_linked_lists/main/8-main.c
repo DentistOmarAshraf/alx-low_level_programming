@@ -6,7 +6,7 @@ int main(void)
 	dlistint_t *head;
 
 	head = NULL;
-	for (i = 0 ; i < 3 ; i++)
+	for (i = 0 ; i < 1 ; i++)
 		add_dnodeint_end(&head, i);
 /*	add_dnodeint_end(&head, 98);
 	add_dnodeint_end(&head, 402);
