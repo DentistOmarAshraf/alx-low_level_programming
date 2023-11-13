@@ -14,11 +14,12 @@ int delete_dnodeint_at_index(dlistint_t **head, size_t idx)
 
 	if (!*head)
 		return (-1);
-	if (!idx)
+	if (idx == 0)
 	{
 		dlt = *head;
 		*head = (*head)->next;
 		free(dlt);
+		dlt = NULL;
 		return (1);
 	}
 	ptr = *head;

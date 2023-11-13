@@ -6,18 +6,18 @@ int main(void)
 	dlistint_t *head;
 
 	head = NULL;
-	for (i = 0 ; i < 2 ; i++)
+	for (i = 0 ; i < 3 ; i++)
 		add_dnodeint_end(&head, i);
 /*	add_dnodeint_end(&head, 98);
 	add_dnodeint_end(&head, 402);
 	add_dnodeint_end(&head, 1024);*/
 	print_dlistint(head);
 	printf("-----------------\n");
-	x = delete_dnodeint_at_index(&head, 1);
+	x = delete_dnodeint_at_index(&head, 0);
 	printf("x = (%d)\n", x);
 	print_dlistint(head);
 	printf("------------------\n");
-	x = delete_dnodeint_at_index(&head, 1);
+	x = delete_dnodeint_at_index(&head, 0);
 	printf("x = (%d)\n", x);
 	print_dlistint(head);
 	printf("---------------------\n");
