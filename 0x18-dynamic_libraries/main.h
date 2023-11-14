@@ -16,7 +16,7 @@ int _atoi(char *);
 char *_strcat(char *, char *);
 char *_strncat(char *, char *, int);
 char *_strncpy(char *, char *, int);
-int *_strcmp(char *, char*);
+int _strcmp(char *, char*);
 char *_memset(char *, char, size_t);
 char *_memcpy(char *, char *, size_t);
 char *_strchr(char *, char);

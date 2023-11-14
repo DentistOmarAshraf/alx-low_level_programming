@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdio.h>
 /**
  * _strcat - conactete two string
  * @dest: pointer to str (destination)
@@ -52,11 +51,33 @@ char *_strncpy(char *dest, char *src, int n)
 		dest[i] = '\0';
 	return (dest);
 }
-int main(void)
+/**
+ * _strcmp - compare tow string
+ * @s1: pointer to str
+ * @s2: poniter to str
+ * Return: 1 if Identical 0 if not
+ */
+int _strcmp(char *s1, char *s2)
 {
-	char dest[] = "omar ";
-	char src[] = "ashraf";
+	if (!*s1 && !*s2)
+		return (1);
+	if (*s1 == *s2)
+		return (_strcmp(s1 + 1, s2 + 1));
+	else
+		return (0);
+}
+/**
+ * _memset - setting first n bytes of pointer
+ * @s: pointer to str
+ * @b: char
+ * @n: int
+ * Return: pointer to str
+ */
+char *_memset(char *s, char b, size_t n)
+{
+	size_t i;
 
-	printf("%s\n", _strncpy(dest, src, 3));
-	return (0);
+	for (i = 0 ; i < n && s[i]; i++)
+		s[i] = b;
+	return (s);
 }
