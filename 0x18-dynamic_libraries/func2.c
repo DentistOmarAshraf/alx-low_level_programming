@@ -35,7 +35,7 @@ void _puts(char *s)
 		return;
 	}
 	_putchar(*s);
-	puts(s + 1);
+	_puts(s + 1);
 }
 /**
  * _strcpy - copy str from src to dest
