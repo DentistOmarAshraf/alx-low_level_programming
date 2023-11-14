@@ -25,7 +25,7 @@ char *_memcpy(char *dest, char *src, size_t n)
  */
 char *_strchr(char *str, char c)
 {
-	int i, j, x = 0;
+	int i;
 
 	for (i = 0 ; str[i] ; i++)
 		if (str[i] == c)
