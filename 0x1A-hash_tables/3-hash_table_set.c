@@ -73,6 +73,8 @@ hash_node_t *add_node(hash_node_t **head, const char *key, const char *value)
 	*head = new;
 	return (new);
 }
+
+
 /**
  * hash_table_set - setting elemnt at hash table
  * @ht: pointer to hash table
@@ -87,28 +89,22 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	hash_node_t **ptr;
 	hash_node_t *tst;
 
-	if (!key || (_strlen((char *)key) == 0))
+	if (!key || (_strlen((char *)key) == 0) || !ht)
 		return (0);
 	index = key_index((unsigned char *)key, ht->size);
 	ptr = &(ht->array[index]);
 	tst = *ptr;
-	if (!ptr)
-		chk = add_node(ptr, key, value);
-	else
+	while (tst)
 	{
-		while (tst)
+		if (_strcmp(tst->key, (char *)key))
 		{
-			if (_strcmp(tst->key, (char *)key))
-			{
-				free(tst->value);
-				tst->value = _copy(value);
-				break;
-			}
-			tst = tst->next;
+			free(tst->value);
+			tst->value = _copy(value);
+			return (1);
 		}
-		if (!tst)
-			chk = add_node(ptr, key, value);
+		tst = tst->next;
 	}
+	chk = add_node(ptr, key, value);
 	if (!chk)
 		return (0);
 	return (1);
