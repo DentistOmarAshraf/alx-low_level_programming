@@ -1,5 +1,16 @@
 #include "hash_tables.h"
 /**
+ * _strlen - function to return string length
+ * @s: pointer to str
+ * Return: int
+ */
+int _strlen(char *s)
+{
+	if (!*s)
+		return (0);
+	return (1 + _strlen(s + 1));
+}
+/**
  * _strcmp - string compare function
  * @s1: pointer to str
  * @s2: pointer to str
@@ -76,7 +87,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	hash_node_t **ptr;
 	hash_node_t *tst;
 
-	if (!key || !value)
+	if (!key || (_strlen((char *)key) == 0))
 		return (0);
 	index = key_index((unsigned char *)key, ht->size);
 	ptr = &(ht->array[index]);
