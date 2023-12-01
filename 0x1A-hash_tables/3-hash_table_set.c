@@ -62,9 +62,9 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	hash_node_t **ptr;
 
 	index = key_index((unsigned char *)key, ht->size);
-	ptr = &(ht->array[index]);
-	if (!ptr)
+	if (index > ht->size)
 		return (0);
+	ptr = &(ht->array[index]);
 	chk = add_node(ptr, key, value);
 	if (!chk)
 		return (0);
