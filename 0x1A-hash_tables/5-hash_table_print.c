@@ -21,9 +21,10 @@ void hash_table_print(const hash_table_t *ht)
 		if (count != 0 && ht->array[i])
 			printf(", ");
 		head = ht->array[i];
-		if (head)
+		while (head)
 		{
 			printf("\'%s\': \'%s\'", head->key, head->value);
+			head = head->next;
 			count++;
 		}
 		i++;
