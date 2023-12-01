@@ -1,5 +1,19 @@
 #include "hash_tables.h"
 /**
+ * _strcmp - string compare function
+ * @s1: pointer to str
+ * @s2: pointer to str
+ * Return: 1 if identical 0 if not
+ */
+int _strcmp(char *s1, char *s2)
+{
+	if (*s1 == '\0' && *s2 == '\0')
+		return (1);
+	if (*s1 == *s2)
+		return (_strcmp(s1 + 1, s2 + 1));
+	return (0);
+}
+/**
  * _copy - function I made to copy const
  * @str: pointer to str
  * Return: pointer to str
@@ -60,10 +74,28 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	unsigned long int index;
 	hash_node_t *chk;
 	hash_node_t **ptr;
+	hash_node_t *tst;
 
 	index = key_index((unsigned char *)key, ht->size);
 	ptr = &(ht->array[index]);
-	chk = add_node(ptr, key, value);
+	tst = *ptr;
+	if (!ptr)
+		chk = add_node(ptr, key, value);
+	else
+	{
+		while (tst)
+		{
+			if (_strcmp(tst->key, (char *)key))
+			{
+				free(tst->value);
+				tst->value = _copy(value);
+				break;
+			}
+			tst = tst->next;
+		}
+		if (!tst)
+			chk = add_node(ptr, key, value);
+	}
 	if (!chk)
 		return (0);
 	return (1);
