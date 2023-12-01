@@ -76,6 +76,8 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	hash_node_t **ptr;
 	hash_node_t *tst;
 
+	if (!key || !value)
+		return (0);
 	index = key_index((unsigned char *)key, ht->size);
 	ptr = &(ht->array[index]);
 	tst = *ptr;
