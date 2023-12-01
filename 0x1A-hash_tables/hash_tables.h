@@ -31,5 +31,6 @@ typedef struct hash_table_s
 /***********functions***************/
 hash_table_t *hash_table_create(unsigned long int);
 unsigned long int hash_djb2(const unsigned char *str);
+unsigned long int key_index(char *, unsigned long int);
 
 #endif
