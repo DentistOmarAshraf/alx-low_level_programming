@@ -63,7 +63,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 
 	index = key_index((unsigned char *)key, ht->size);
 	ptr = &(ht->array[index]);
-	chk = add_node(ptr, hash_djb2((unsigned char *)key), value);
+	chk = add_node(ptr, key, value);
 	if (!chk)
 		return (0);
 	return (1);
