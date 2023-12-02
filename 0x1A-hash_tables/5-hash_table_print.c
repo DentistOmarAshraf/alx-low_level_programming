@@ -12,18 +12,18 @@ void hash_table_print(const hash_table_t *ht)
 	unsigned long int i;
 	int count = 0;
 
-	if (!ht)
+	if (ht == NULL)
 		return;
 	printf("{");
 	i = 0;
 	while (i < ht->size)
 	{
-		if (count != 0 && ht->array[i])
-			printf(", ");
 		head = ht->array[i];
 		while (head)
 		{
-			printf("\'%s\': \'%s\'", head->key, head->value);
+			if (count)
+				printf(", ");
+			printf("'%s': '%s'", head->key, head->value);
 			head = head->next;
 			count++;
 		}
