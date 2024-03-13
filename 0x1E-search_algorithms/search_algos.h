@@ -6,6 +6,8 @@
 
 /*----Liner Search Header---*/
 int linear_search(int *array, size_t size, int value);
+
+/*----Binary Search Header--*/
 int binary_search(int *array, size_t size, int value);
 
 #endif
